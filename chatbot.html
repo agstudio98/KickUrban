@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <header class="glass">
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="KickUrban">
+        </div>
+        <button class="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="catalog.html">Catálogo</a></li>
+                <li><a href="index.html#curaduria">Curaduría</a></li>
+                <li><a href="index.html#experiencia">Experiencia</a></li>
+                <li><a href="auth.html">Cuenta</a></li>
+                <li><a href="chatbot.html">Soporte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="support-layout">
+            <!-- Sidebar: Historial de Reclamos -->
+            <aside class="history-panel glass shadow-deep reveal reveal-left active">
+                <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">Historial de Casos</h3>
+                
+                <div class="history-item shadow-soft">
+                    <h5>Caso #KU-8821</h5>
+                    <p>Retraso en entrega - Nike Air Max</p>
+                    <span class="status-badge closed">Cerrado</span>
+                </div>
+
+                <div class="history-item shadow-soft">
+                    <h5>Caso #KU-9012</h5>
+                    <p>Solicitud de cambio de talle</p>
+                    <span class="status-badge">En Curso</span>
+                </div>
+
+                <div class="history-item shadow-soft">
+                    <h5>Caso #KU-9155</h5>
+                    <p>Error en proceso de pago</p>
+                    <span class="status-badge closed">Resuelto</span>
+                </div>
+
+                <button class="btn" style="width: 100%; margin-top: auto; padding: 15px; font-size: 0.7rem;">Nuevo Reporte</button>
+            </aside>
+
+            <!-- Main: Chat Interface -->
+            <div class="chat-container glass shadow-deep reveal reveal-scale active">
+                <div id="chatMessages" class="chat-messages">
+                    <div class="message bot">
+                        Soporte de KickUrban Inicializado. ¿Cómo podemos asistir en su viaje urbano hoy?
+                    </div>
+                </div>
+                <form id="chatForm" class="chat-input-area glass">
+                    <input type="text" id="userInput" placeholder="Escriba su consulta o reclamo..." autocomplete="off">
+                    <button type="submit" class="btn shadow-soft shadow-hover" style="padding: 12px 25px; border-radius: 50px;">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="reveal reveal-up">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="KickUrban Logo">
+                </div>
+                <p>Curadores de diseño y cultura urbana. Seleccionamos el calzado más relevante para el paisaje moderno desde 2026.</p>
+                <div class="footer-social">
+                    <a href="#"><img src="https://www.svgrepo.com/show/521711/instagram.svg" class="social-icon" alt="Instagram"></a>
+                    <a href="#"><img src="https://www.svgrepo.com/show/521903/twitter.svg" class="social-icon" alt="Twitter"></a>
+                    <a href="#"><img src="https://www.svgrepo.com/show/521654/facebook.svg" class="social-icon" alt="Facebook"></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Archivo</h4>
+                <ul>
+                    <li><a href="catalog.html">Todo el Calzado</a></li>
+                    <li><a href="catalog.html?cat=Sport">Rendimiento</a></li>
+                    <li><a href="catalog.html?cat=Casual">Urbano</a></li>
+                    <li><a href="catalog.html">Nuevos Drops</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="chatbot.html">Centro de Ayuda</a></li>
+                    <li><a href="#">Estado del Pedido</a></li>
+                    <li><a href="#">Envíos y Entregas</a></li>
+                    <li><a href="#">Cambios y Devoluciones</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><a href="#">info@kickurban.com</a></li>
+                    <li><a href="#">+54 11 1234 5678</a></li>
+                    <li><a href="#">CABA, Argentina</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 KICKURBAN. EL PINÁCULO DEL CALZADO URBANO.</p>
+            <div class="footer-legal">
+                <a href="#">Privacidad</a>
+                <a href="#">Términos</a>
+                <a href="#">Accesibilidad</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="js/wallpaper.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/mobileMenu.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

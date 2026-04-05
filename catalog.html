@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 3D Wallpaper -->
+    <canvas id="bg-canvas"></canvas>
+
+    <header class="glass">
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="KickUrban">
+        </div>
+        <button class="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="catalog.html">Catálogo</a></li>
+                <li><a href="index.html#curaduria">Curaduría</a></li>
+                <li><a href="index.html#experiencia">Experiencia</a></li>
+                <li><a href="auth.html">Cuenta</a></li>
+                <li><a href="chatbot.html">Soporte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="catalog-layout container">
+        <aside class="filters glass shadow-deep reveal reveal-left active">
+            <h3 style="margin-bottom: 30px;">Curaduría de Filtros</h3>
+            <input type="text" id="searchInput" class="search-bar" placeholder="Buscar en nuestro archivo...">
+            
+            <div class="filter-group">
+                <h3>Casa de Marcas</h3>
+                <label><input type="checkbox" class="filter-brand" value="Adidas"> Adidas</label>
+                <label><input type="checkbox" class="filter-brand" value="Puma"> Puma</label>
+                <label><input type="checkbox" class="filter-brand" value="Crocs"> Crocs</label>
+            </div>
+
+            <div class="filter-group">
+                <h3>Seleccionar Categoría</h3>
+                <label><input type="checkbox" class="filter-category" value="Sport"> Rendimiento Deportivo</label>
+                <label><input type="checkbox" class="filter-category" value="Casual"> Confort Casual</label>
+            </div>
+        </aside>
+
+        <section class="reveal reveal-up active">
+            <div id="productsGrid" class="products-grid">
+                <!-- Los productos se renderizarán dinámicamente aquí -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="reveal reveal-up">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="KickUrban Logo">
+                </div>
+                <p>Curadores de diseño y cultura urbana. Seleccionamos el calzado más relevante para el paisaje moderno desde 2026.</p>
+                <div class="footer-social">
+                    <a href="#"><img src="https://www.svgrepo.com/show/521711/instagram.svg" class="social-icon" alt="Instagram"></a>
+                    <a href="#"><img src="https://www.svgrepo.com/show/521903/twitter.svg" class="social-icon" alt="Twitter"></a>
+                    <a href="#"><img src="https://www.svgrepo.com/show/521654/facebook.svg" class="social-icon" alt="Facebook"></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Archivo</h4>
+                <ul>
+                    <li><a href="catalog.html">Todo el Calzado</a></li>
+                    <li><a href="catalog.html?cat=Sport">Rendimiento</a></li>
+                    <li><a href="catalog.html?cat=Casual">Urbano</a></li>
+                    <li><a href="catalog.html">Nuevos Drops</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="chatbot.html">Centro de Ayuda</a></li>
+                    <li><a href="#">Estado del Pedido</a></li>
+                    <li><a href="#">Envíos y Entregas</a></li>
+                    <li><a href="#">Cambios y Devoluciones</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><a href="#">info@kickurban.com</a></li>
+                    <li><a href="#">+54 11 1234 5678</a></li>
+                    <li><a href="#">CABA, Argentina</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 KICKURBAN. EL PINÁCULO DEL CALZADO URBANO.</p>
+            <div class="footer-legal">
+                <a href="#">Privacidad</a>
+                <a href="#">Términos</a>
+                <a href="#">Accesibilidad</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="js/wallpaper.js"></script>
+    <script src="js/catalog.js"></script>
+    <script src="js/mobileMenu.js"></script>
+    <script>
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
